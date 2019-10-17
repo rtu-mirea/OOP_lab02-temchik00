@@ -19,17 +19,22 @@ public class Main {
                 case 1:
                     outputMenu();
                     break;
-                case 2:
-                    String line = in.nextLine();
+                case 2:{
+                    System.out.print("Введите ключевые слова: ");
+                    Scanner in2 = new Scanner(System.in);
+                    String line = in2.nextLine();
                     HashSet<String> keys = new HashSet<String>();
                     for(String key: line.split(" "))
                         keys.add(key);
                     first.setKeys(keys);
                     second.setKeys(keys);
+                }
                     break;
-                case 3:
+                case 3: {
+                    Scanner in2 = new Scanner(System.in);
                     System.out.print("Введите текст: ");
-                    first.setText(in.nextLine());
+                    first.setText(in2.nextLine());
+                }
                     break;
                 case 4:
                     first.showEntrys();
@@ -43,9 +48,11 @@ public class Main {
                 case 7:
                     first.getIdentificators();
                     break;
-                case 8:
+                case 8: {
+                    Scanner in2 = new Scanner(System.in);
                     System.out.print("Введите текст: ");
-                    second.setText(new StringBuilder(in.nextLine()));
+                    second.setText(new StringBuilder(in2.nextLine()));
+                }
                     break;
                 case 9:
                     second.identificator();
@@ -54,17 +61,21 @@ public class Main {
                     second.delIndent();
                     break;
                 case 11:
-                    // Нэма
+                    second.insertNew();
                     break;
-                case 12:
+                case 12:{
+                    Scanner in2 = new Scanner(System.in);
                     System.out.print("Введите текст: ");
-                    third.setText(in.nextLine());
+                    third.setText(in2.nextLine());
                     third.checkNum();
+                }
                     break;
-                case 13:
+                case 13: {
+                    Scanner in2 = new Scanner(System.in);
                     System.out.print("Введите текст: ");
-                    third.setText(in.nextLine());
+                    third.setText(in2.nextLine());
                     third.delNum();
+                }
                     break;
                 case 0:
                     System.out.println("Завершение программы...");

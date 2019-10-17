@@ -69,4 +69,29 @@ public class Second {
         System.out.print("Текст без идентификаторов: ");
         System.out.println(text);
     }
+
+    public void insertNew(){
+        if(text.length() == 0){
+            System.out.println("Инициализация не произведена"); return;
+        }
+        if(keys.size() == 0){
+            System.out.println("Инициализация не произведена"); return;
+        }
+        HashSet<String> unused = (HashSet<String>)keys.clone();
+        int pos = text.indexOf(" ");
+        while(pos != -1){
+            int spacePos = pos - 1;
+            while(spacePos >= 0 && text.charAt(spacePos) != ' ')
+                spacePos--;
+            String word = text.substring(spacePos+1, pos);
+            if(unused.contains(word))
+                unused.remove(word);
+            pos = text.indexOf(" ", pos+1);
+        }
+        if (unused.size() > 0){
+            text.insert(0, unused.iterator().next());
+        }
+        System.out.print("Изменённый текст: ");
+        System.out.println(text);
+    }
 }
